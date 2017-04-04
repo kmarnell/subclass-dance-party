@@ -93,7 +93,13 @@ $(document).ready(function() {
     });
   });
 
+  $(this).on('mouseenter', '.dancer', function(event) {
+    $(this).animate({height: '25%'}, 1);
+  });
 
+  $(this).on('mouseleave', '.dancer', function(event) {
+    $(this).animate({height: '150'}, 1);
+  });
 
 });
 
