@@ -9,3 +9,7 @@ makeBlinkyDancer.prototype.step = function() {
   makeDancer.prototype.step.call(this);
   this.$node.toggle();
 };
+
+makeBlinkyDancer.prototype.lineUp = function(top, left) {
+  this.$node.css({top: 200, left: left});
+};

@@ -9,3 +9,7 @@ fadeDancer.prototype.step = function() {
   makeDancer.prototype.step.call(this);
   this.$node.fadeToggle();
 };
+
+fadeDancer.prototype.lineUp = function(top, left) {
+  this.$node.css({top: 600, left: left});
+};

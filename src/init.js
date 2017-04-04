@@ -37,31 +37,59 @@ $(document).ready(function() {
   });
 
 
-  $('lineUpButton').on('click', function() {
-    var slideDancers =[];
-    var fadeDancers = [];
-    var blinkyDancers = [];
-    var slideTop = ($(window).height() - 450) / 2;
-    var fadeTop = slideTop + 175;
-    var blinkTop = fadeTop + 175;
+  $('.lineUpButton').on('click', function(event) {
+    var blinkCount = 0;
+    var fadeCount = 0;
+    var slideCount = 0;
 
     window.dancers.forEach(function(dancer) {
       if(dancer.constructor.name === 'slideDancer') {
-        slideDancers.push(dancer);
+        slideCount++;
       } else if (dancer.constructor.name === 'fadeDancer') {
-        fadeDancers.push(dancer);
+        fadeCount++;
       } else {
-        blinkyDancers.push(dancer);
+        blinkCount++;
+      }
+    });
+    var slideSpacing = $(window).width() / slideCount;
+    var fadeSpacing = $(window).width() / fadeCount;
+    var blinkSpacing = $(window).width() / blinkCount;
+
+    window.dancers.forEach(function(dancer, index) {
+      if (dancer.constructor.name === 'slideDancer') {
+        dancer.lineUp(500, slideSpacing * (slideCount - 1));
+        slideCount--;
+      } else if (dancer.constructor.name === 'fadeDancer') {
+        dancer.lineUp(500, fadeSpacing * (fadeCount - 1));
+        fadeCount--;
+      } else {
+        dancer.lineUp(500, blinkSpacing * (blinkCount - 1));
+        blinkCount--;
       }
     });
 
-    var slideLeft = ($(window).width() / slideDancers.length)
-
-    slideDancers.forEach(function(dancer) {
-      dancer.lineUp(slideTop, slideLeft)
-    });
   });
 
+  $('.pairUpButton').on('click', function(event) {
+    var getRandomInt = function(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    };
+
+    var newPosition = function() {
+      var newTop = getRandomInt(0, ($(window).height() - 150));
+      var newLeft = getRandomInt(0, ($(window).width() - 125));
+      return [newTop, newLeft];
+    }
+
+    window.dancers.forEach(function(dancer, index) {
+      if (index % 2 === 0) {
+        var position = newPosition();
+        dancer.$node.css({top: position[0], left: position[1]});
+      } else {
+        dancer.$node.css({top: position[0], left: (position[1] + 125)});
+      }
+    });
+  });
 
 
 
