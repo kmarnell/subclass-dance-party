@@ -77,15 +77,17 @@ $(document).ready(function() {
 
     var newPosition = function() {
       var newTop = getRandomInt(0, ($(window).height() - 150));
-      var newLeft = getRandomInt(0, ($(window).width() - 125));
+      var newLeft = getRandomInt(0, ($(window).width() - 250));
       return [newTop, newLeft];
     }
+    
+    var position;
 
-    window.dancers.forEach(function(dancer, index) {
+    window.dancers.forEach(function(dancer, index, dancers) {
       if (index % 2 === 0) {
-        var position = newPosition();
+        position = newPosition();
         dancer.$node.css({top: position[0], left: position[1]});
-      } else {
+      } else if (index % 2 === 1) { 
         dancer.$node.css({top: position[0], left: (position[1] + 125)});
       }
     });
