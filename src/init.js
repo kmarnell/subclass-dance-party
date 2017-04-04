@@ -32,6 +32,38 @@ $(document).ready(function() {
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
+    window.dancers.push(dancer);
+
   });
+
+
+  $('lineUpButton').on('click', function() {
+    var slideDancers =[];
+    var fadeDancers = [];
+    var blinkyDancers = [];
+    var slideTop = ($(window).height() - 450) / 2;
+    var fadeTop = slideTop + 175;
+    var blinkTop = fadeTop + 175;
+
+    window.dancers.forEach(function(dancer) {
+      if(dancer.constructor.name === 'slideDancer') {
+        slideDancers.push(dancer);
+      } else if (dancer.constructor.name === 'fadeDancer') {
+        fadeDancers.push(dancer);
+      } else {
+        blinkyDancers.push(dancer);
+      }
+    });
+
+    var slideLeft = ($(window).width() / slideDancers.length)
+
+    slideDancers.forEach(function(dancer) {
+      dancer.lineUp(slideTop, slideLeft)
+    });
+  });
+
+
+
+
 });
 

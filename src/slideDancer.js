@@ -10,3 +10,11 @@ slideDancer.prototype.step = function() {
   this.$node.animate({marginLeft: '-20px'});
   this.$node.animate({marginLeft: '+20px'});
 }
+
+slideDancer.prototype.lineUp = function(top, left) {
+	var styleSettings = {
+    top: top,
+    left: left
+  };
+  this.$node.css(styleSettings);
+};

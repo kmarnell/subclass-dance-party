@@ -1,3 +1,5 @@
+var dancerCount = 0;
+
 var makeDancer = function(top, left, timeBetweenSteps) {
   this.$node = $('<img src="https://s-media-cache-ak0.pinimg.com/736x/55/93/7d/55937dc54afe04e6b6f8a746b49215aa.jpg" class="dancer" height="150px">');
   this.top = top;
@@ -5,6 +7,7 @@ var makeDancer = function(top, left, timeBetweenSteps) {
   this.timeBetweenSteps = timeBetweenSteps;
   this.step.call(this);
   this.setPosition.call(this, top, left);
+  dancerCount++;
 };
 
 makeDancer.prototype.step = function() {
@@ -17,4 +20,8 @@ makeDancer.prototype.setPosition = function(top, left) {
     left: left
   };
   this.$node.css(styleSettings);
+};
+
+makeDancer.prototype.lineUp = function() {
+
 };
