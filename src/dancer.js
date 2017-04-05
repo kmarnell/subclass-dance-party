@@ -1,7 +1,7 @@
 var dancerCount = 0;
 
 var makeDancer = function(top, left, timeBetweenSteps) {
-  this.$node = $('<img src="https://media.giphy.com/media/5fBH6zrcIiOs65zXCtG/giphy.gif" class="dancer" height="150px">');
+  this.$node = $('<img src="http://i.imgur.com/G6KaInG.gif" class="dancer" height="250px">');
   this.top = top;
   this.left = left;
   this.timeBetweenSteps = timeBetweenSteps;

@@ -76,8 +76,8 @@ $(document).ready(function() {
     };
 
     var newPosition = function() {
-      var newTop = getRandomInt(0, ($(window).height() - 150));
-      var newLeft = getRandomInt(0, ($(window).width() - 250));
+      var newTop = getRandomInt(0, ($(window).height() - 250));
+      var newLeft = getRandomInt(0, ($(window).width() - 200));
       return [newTop, newLeft];
     }
     
@@ -88,17 +88,17 @@ $(document).ready(function() {
         position = newPosition();
         dancer.$node.css({top: position[0], left: position[1]});
       } else if (index % 2 === 1) { 
-        dancer.$node.css({top: position[0], left: (position[1] + 125)});
+        dancer.$node.css({top: position[0], left: (position[1] + 175)});
       }
     });
   });
 
   $(this).on('mouseenter', '.dancer', function(event) {
-    $(this).animate({height: '25%'}, 1);
+    $(this).animate({height: '400'}, 1);
   });
 
   $(this).on('mouseleave', '.dancer', function(event) {
-    $(this).animate({height: '150'}, 1);
+    $(this).animate({height: '250'}, 1);
   });
 
 });

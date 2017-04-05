@@ -12,5 +12,5 @@ slideDancer.prototype.step = function() {
 }
 
 slideDancer.prototype.lineUp = function(top, left) {
-  this.$node.css({top: 400, left: left});
+  this.$node.css({top: 360, left: left});
 };
