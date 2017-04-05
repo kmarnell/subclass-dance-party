@@ -1,16 +1,16 @@
-var slideDancer = function(top, left, timeBetweenSteps) {
-  makeDancer.call(this, top, left, timeBetweenSteps);
+var SlideDancer = function(top, left, timeBetweenSteps) {
+  Dancer.call(this, top, left, timeBetweenSteps);
 }
 
-slideDancer.prototype = Object.create(makeDancer.prototype);
-slideDancer.prototype.constructor = slideDancer;
+SlideDancer.prototype = Object.create(Dancer.prototype);
+SlideDancer.prototype.constructor = SlideDancer;
 
-slideDancer.prototype.step = function() {
-  makeDancer.prototype.step.call(this);
+SlideDancer.prototype.step = function() {
+  Dancer.prototype.step.call(this);
   this.$node.animate({marginLeft: '-20px'});
   this.$node.animate({marginLeft: '+20px'});
 }
 
-slideDancer.prototype.lineUp = function(top, left) {
+SlideDancer.prototype.lineUp = function(top, left) {
   this.$node.css({top: 360, left: left});
 };

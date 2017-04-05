@@ -5,7 +5,7 @@ describe('fadeyDancer', function() {
 
   beforeEach(function() {
     clock = sinon.useFakeTimers();
-    fadeyDancer = new fadeDancer(10, 20, timeBetweenSteps);
+    fadeyDancer = new FadeDancer(10, 20, timeBetweenSteps);
   });
 
   it('should have a jQuery $node object', function() {
@@ -27,7 +27,6 @@ describe('fadeyDancer', function() {
       sinon.spy(fadeyDancer, 'step');
       expect(fadeyDancer.step.callCount).to.be.equal(0);
       clock.tick(timeBetweenSteps); // ? it seems an extra tick is necessary...
-      clock.tick(timeBetweenSteps);
 
       expect(fadeyDancer.step.callCount).to.be.equal(1);
 

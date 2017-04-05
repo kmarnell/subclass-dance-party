@@ -43,9 +43,9 @@ $(document).ready(function() {
     var slideCount = 0;
 
     window.dancers.forEach(function(dancer) {
-      if(dancer.constructor.name === 'slideDancer') {
+      if(dancer.constructor.name === 'SlideDancer') {
         slideCount++;
-      } else if (dancer.constructor.name === 'fadeDancer') {
+      } else if (dancer.constructor.name === 'FadeDancer') {
         fadeCount++;
       } else {
         blinkCount++;
@@ -56,10 +56,10 @@ $(document).ready(function() {
     var blinkSpacing = $(window).width() / blinkCount;
 
     window.dancers.forEach(function(dancer, index) {
-      if (dancer.constructor.name === 'slideDancer') {
+      if (dancer.constructor.name === 'SlideDancer') {
         dancer.lineUp(500, slideSpacing * (slideCount - 1));
         slideCount--;
-      } else if (dancer.constructor.name === 'fadeDancer') {
+      } else if (dancer.constructor.name === 'FadeDancer') {
         dancer.lineUp(500, fadeSpacing * (fadeCount - 1));
         fadeCount--;
       } else {
