@@ -18,6 +18,10 @@ describe('slideyDancer', function() {
     expect(slideyDancer.$node.animate.called).to.be.true;
   });
 
+  it('should have a lineUp method', function() {
+    expect(slideyDancer.lineUp).to.be.a('function');
+  });
+
   describe('dance', function() {
     it('should call step at least once per second', function() {
       sinon.spy(slideyDancer, 'step');

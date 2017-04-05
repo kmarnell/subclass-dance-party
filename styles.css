@@ -5,12 +5,18 @@ body{
   margin: 0px;
   background-color:#444;
   background-image: url("http://i.ytimg.com/vi/hKLV-ynHdJk/maxresdefault.jpg");
-  font-size: 18px;
+  font-size: 16px;
 }
 body, a:link, a:visited, a:active{
+  border: 1px solid lightblue;
+  border-radius: 3px;
+  font-family: verdana;
   color: lightblue;
 }
-.title, .addDancerButton{
+a{
+  padding: 3px;
+}
+.title, .addDancerButton, .lineUpButton, .pairUpButton{
   padding:5px 12px;
   float:right;
 }
